@@ -86,10 +86,12 @@
 
 
 <!-- EmailJS Script -->
+
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-  
-  emailjs.init(Wz-yW4LZxkNMhnI3X);
+
+  emailjs.init("Wz-yW4LZxkNMhnI3X");
 
   document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
@@ -104,10 +106,11 @@
       document.getElementById("orderForm").reset();
     }, function(error) {
       alert("❌ Failed to send order. Try again later.");
-      console.log(error);
+      console.error("EmailJS error:", error);
     });
   });
 </script>
+
 
 </body>
 </html>
