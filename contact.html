@@ -65,7 +65,7 @@
       <div>
         <i class="fa fa-envelope-o"></i>
         <span>
-          <h5>inquiries.tres.dulces@gmail.com</h5>
+          <h5>inquiries.tresdulces@gmail.com</h5>
           <p>Email us your query</p>
         </span>
       </div>
@@ -90,26 +90,29 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-
+  // Initialize EmailJS with your correct public key
   emailjs.init("Wz-yW4LZxkNMhnI3X");
 
   document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    // Send the form data using EmailJS
     emailjs.send("tresdulcesentrep", "tr35du163s", {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       subject: document.getElementById("subject").value,
       message: document.getElementById("message").value
-    }).then(function(response) {
+    })
+    .then(function(response) {
       alert("🎉 Order sent successfully!");
       document.getElementById("orderForm").reset();
     }, function(error) {
-      alert("❌ Failed to send order. Try again later.");
+      alert("❌ Failed to send order. Check if your email is correct in EmailJS.");
       console.error("EmailJS error:", error);
     });
   });
 </script>
+
 
 
 </body>
